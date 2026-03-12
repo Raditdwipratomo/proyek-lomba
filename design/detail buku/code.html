@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book Detail - Modern Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#e0e3e5",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed": "#001b3c",
+                        "outline": "#74777f",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "secondary": "#545f72",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed": "#111c2c",
+                        "on-tertiary-fixed-variant": "#00513b",
+                        "surface": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#d5e0f7",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#003e2c",
+                        "secondary-fixed-dim": "#bcc7dd",
+                        "on-tertiary-fixed": "#002116",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#43474e",
+                        "on-secondary-container": "#586377",
+                        "on-tertiary-container": "#63ad8f",
+                        "secondary-fixed": "#d8e3fa",
+                        "inverse-primary": "#adc7f7",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "tertiary-fixed": "#a6f2d1",
+                        "tertiary": "#00261a",
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary-fixed-dim": "#8bd6b6",
+                        "on-primary-container": "#86a0cd",
+                        "primary": "#002045",
+                        "surface-tint": "#455f88",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#1a365d",
+                        "surface-container-high": "#e6e8ea",
+                        "error": "#ba1a1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f7f9fb 0%, #eceef0 100%);
+        }
+        .silk-press-btn {
+            background: linear-gradient(to bottom right, #002045, #1a365d);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+<nav class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<span class="font-headline text-2xl font-extrabold tracking-tight text-primary">Library</span>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<a class="hover:text-primary transition-colors" href="#">Catalog</a>
+<a class="hover:text-primary transition-colors" href="#">My Books</a>
+<a class="hover:text-primary transition-colors" href="#">E-Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 w-64 text-sm focus:ring-2 focus:ring-primary/40 placeholder:text-outline/60" placeholder="Search for books, authors..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="User Profile Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkB7ei5TTyKCG4VAZl5uVmW-g6bcvoHVP8zezgwl_VL_HWEZmBOYBwSAvFoco4NgT6w3rurG8rGBZfoMNNWN-G9FW7EtvEOEg-9X21qREWFz6RlraVXyNd0-O8AFK6d5nIKDeMi8hmbm67AqOU4Cgpq6FFh6Ee6HBsFHpgmAtpdRSBcOcAfTOlDrbG_RSz-Pxq9bKLA0UaFNunwxfXysQGWLyC6WmXy0eO2tKmVYjmTjob2OyXiqFxgjWFOomX6MRKthee3FTFt7g"/>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<main class="max-w-[1440px] mx-auto px-8 py-12">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
+<!-- Left: Book Cover -->
+<div class="lg:col-span-5 relative group">
+<div class="aspect-[3/4] bg-surface-container-low rounded-xl overflow-hidden shadow-sm transition-all duration-500 group-hover:shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Classic book cover architectural design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSRt80qgoHFH4Za4Ji5EMQl9HhCReOdXNt9sI3m1KQ0aF6MTEMl16gymI3mrOzZVg0WA1MzNdVBVrzxK61-cIuNZpDwk6Xohc-AAXMpZ1SuLCiwsXV5ptoqq_R6f5u9meo0oYNet3JsL1Cb7kNPdznTC0kESzD8bPfpk7Ikf5zprMaVeIMGWL2_8JJlAZVq37BtAlVaPaLsyEwsY2xPFa3ieWlXD0vPMEzik1xis3UApc0PpMi8UXZB6pya3ZVCkzuBJ4649I-lx8"/>
+</div>
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-tertiary/10 backdrop-blur-md rounded-full flex items-center justify-center border border-tertiary/5">
+<div class="text-center">
+<span class="block text-tertiary font-headline font-bold text-2xl">4.9</span>
+<span class="text-[10px] uppercase tracking-widest text-tertiary font-bold">Rating</span>
+</div>
+</div>
+</div>
+<!-- Right: Primary Info -->
+<div class="lg:col-span-7 pt-4">
+<div class="flex items-center gap-3 mb-6">
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary text-xs font-bold rounded-full uppercase tracking-wider">Historical Fiction</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-xs font-bold rounded-full uppercase tracking-wider">Award Winner</span>
+</div>
+<h1 class="font-headline text-5xl lg:text-6xl font-extrabold text-primary mb-4 leading-[1.1]">The Architecture of Silence</h1>
+<p class="font-headline text-2xl text-secondary mb-8">By Marcus Aurelius Vane</p>
+<div class="flex items-center gap-4 mb-10">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="text-on-surface-variant font-medium">(2,482 Reviews)</span>
+</div>
+<div class="flex flex-wrap gap-4 items-center">
+<button class="silk-press-btn text-on-primary px-10 py-5 rounded-xl font-headline font-bold text-lg flex items-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">auto_stories</span>
+                        Pinjam Sekarang
+                    </button>
+<button class="p-5 rounded-xl bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+<button class="p-5 rounded-xl bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Content Grid (Asymmetric Bento) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Summary & Reviews -->
+<div class="lg:col-span-8 space-y-16">
+<!-- Ringkasan Buku -->
+<section>
+<h2 class="font-headline text-3xl font-bold text-primary mb-6">Ringkasan Buku</h2>
+<div class="prose prose-lg text-on-surface-variant leading-relaxed max-w-none space-y-4">
+<p>
+                            Dalam narasi yang memukau ini, Marcus Aurelius Vane mengeksplorasi hubungan yang mendalam antara ruang fisik dan ketenangan batin. "The Architecture of Silence" bukan sekadar buku tentang desain; ini adalah perjalanan filosofis melalui struktur-struktur paling sunyi di dunia—dari kuil kuno di pegunungan Himalaya hingga perpustakaan modern yang tersembunyi di jantung kota yang sibuk.
+                        </p>
+<p>
+                            Vane berargumen bahwa di dunia yang bising, kemampuan kita untuk menciptakan ruang bagi keheningan adalah bentuk seni tertinggi. Buku ini memberikan panduan praktis dan estetika bagi mereka yang ingin menata ulang kehidupan mereka melalui lensa minimalis dan fungsionalitas yang penuh kesadaran.
+                        </p>
+</div>
+</section>
+<!-- Ulasan Pengguna -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline text-3xl font-bold text-primary">Ulasan Pengguna</h2>
+<button class="text-primary font-bold hover:underline">Tulis Ulasan</button>
+</div>
+<div class="space-y-8">
+<!-- Review 1 -->
+<div class="p-8 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest">
+<img class="w-full h-full object-cover rounded-full" data-alt="Reviewer profile image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8U2TRzqa37xbNXmFKDIEIk8QGZb-N9KqNJI8XDWVeLvQcl0xaE4d267L7KMWuJAfTPwvvJ43ZRyVy8EoYARQgeKRUCf9yruXzp_rNdrg-cMz0atzNn5nbM_KXPakPNNPP10Kq2Bt7soHHWCh3qdxK8hJnukFHk8DDQDUUMb_5dBNpLFjZvKSlCHnx8aQMghuvCJRF6Nm34_YTUBsvED0fOcYOi4InObTrvhX1oxu6cPu5mgR2qfZcoa8LmRikzHe_msWgm8kjA_I"/>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Sarah Johnson</h4>
+<span class="text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Verified Borrower</span>
+</div>
+</div>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                                "Buku ini benar-benar mengubah cara saya memandang ruang kerja saya. Penjelasannya sangat mendalam namun tetap mudah dipahami. Sangat direkomendasikan untuk siapa saja yang merasa kelelahan dengan keramaian modern."
+                            </p>
+</div>
+<!-- Review 2 -->
+<div class="p-8 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest">
+<img class="w-full h-full object-cover rounded-full" data-alt="Reviewer profile image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApc-MN38ApzgR2XpCCC8fASKF5UxVyitTeCFMAhFVPauRfFNhpyx1RaydFrCCFvK8xl1RwZgNcvZvWPIfcUpxncMTgWh8oBCQOFpkP4VPo09XBKYtw2ftWY3tSdCDkLtYplHnPoBhYXNXRe34SAAJQ6hcdbHygZ7zj2BtGsNlDT0U8cq-SpMFFUZEMtGtyjdT840IIJ7JogBjcs0H-S5N6tUPgYtaK3uX3keXbZVdiqrRctNEO6325qWHnWvAtGNCnFcXDvsTeF60"/>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">David Chen</h4>
+<span class="text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Literary Critic</span>
+</div>
+</div>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                                "Analisis yang tajam dan gaya penulisan yang elegan. Vane berhasil menangkap esensi dari apa yang membuat sebuah tempat terasa 'hidup'."
+                            </p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Product Details -->
+<aside class="lg:col-span-4">
+<div class="sticky top-32 p-10 bg-surface-container-low rounded-xl">
+<h3 class="font-headline text-2xl font-bold text-primary mb-8 border-b border-outline-variant/30 pb-4">Detail Produk</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">ISBN</span>
+<span class="text-on-surface font-bold font-headline">978-3-16-148410-0</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Publisher</span>
+<span class="text-on-surface font-bold font-headline">Editorial Scholars Press</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Pages</span>
+<span class="text-on-surface font-bold font-headline">412 Pages</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Language</span>
+<span class="text-on-surface font-bold font-headline">Bahasa Indonesia</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Dimensions</span>
+<span class="text-on-surface font-bold font-headline">15 x 23 cm</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Format</span>
+<span class="text-on-surface font-bold font-headline">Hardcover</span>
+</div>
+</div>
+<div class="mt-12 p-6 bg-tertiary-fixed rounded-lg border border-tertiary/5">
+<div class="flex items-center gap-3 text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined">verified</span>
+<span class="font-bold">Tersedia di Perpustakaan</span>
+</div>
+<p class="text-xs mt-2 text-on-tertiary-fixed-variant opacity-80">
+                            Estimasi waktu pengembalian buku ini adalah 14 hari kerja.
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+<!-- Buku Terkait Section -->
+<section class="mt-32">
+<div class="flex items-center justify-between mb-10">
+<h2 class="font-headline text-4xl font-extrabold text-primary">Buku Terkait</h2>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+<!-- Related Book 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] bg-surface-container-low rounded-xl overflow-hidden mb-4 relative transition-transform duration-500 group-hover:-translate-y-2">
+<img class="w-full h-full object-cover" data-alt="Modern minimalist book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmOhleaQccjs5Saau_VK2qt-xEJ993NZ7Tz0_S5M4kE6gJMUq9v7wJlfsYoFrlslNfEVUe2MCclZ_4fFaRNrzmL7fRJHKE42JvwYFF8yGXZTvHJjsMa1pjovw4C9_eyryPIWQGj6OZWKTG9XvclyWXNeq-J0aWw50jqmfCBZv7iqYUAD43ZkOZ0l5juSaC-tah1kVjazNJawsFQKgf0C5UQS-G1sULy0ryED_hHFwZarDylwz0kXGgAnQcpFfy5SgFL_92qkjGSHw"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">visibility</span>
+</div>
+</div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors">The Urban Solitude</h3>
+<p class="text-sm text-on-surface-variant">Lydia Stark</p>
+</div>
+<!-- Related Book 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] bg-surface-container-low rounded-xl overflow-hidden mb-4 relative transition-transform duration-500 group-hover:-translate-y-2">
+<img class="w-full h-full object-cover" data-alt="Classic academic book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAROtd5ULgkIKb-5JXkdVzKbAOgWdkCGi1i5bq3hE16zZY4K6yI41s1GmBwAzXjbGKxd_aIkVnR-21SVVIKQVpHpzwEtlEkz3-4J9ob4EamJ5mixC4emqUJp7FH9ASeiZxBrrMl_tb8LdphOMuVhzxaCSitQX3nPWnbHk5cBpQErcUFIdbatqjiS2kZncl3bcNu6pX6RlGY0LOOjPbRWvYZbk6D3aB5H2yBxyyknaFgKmXFhB3Re4aM2iIw7_iiIDLVwQcAy-bDx1I"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">visibility</span>
+</div>
+</div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors">Finding Stillness</h3>
+<p class="text-sm text-on-surface-variant">Oliver Grant</p>
+</div>
+<!-- Related Book 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] bg-surface-container-low rounded-xl overflow-hidden mb-4 relative transition-transform duration-500 group-hover:-translate-y-2">
+<img class="w-full h-full object-cover" data-alt="Artistic abstract book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4OsJi59unPNiz-0W4AiZPFTae93R0PzxdrFUEs8m6lrHswl2t0O3VidoYfuko4dL-bvhOuHA-Axb7yMMxQBPcu4Doi3SqV4GyvzGF8cP1dBTrzHXzJHS1T4riqewoyCLpcWdvD8WsrM4Kd_xXJOb2OcCk18lt6G7r5ixgM7adS6iyYJmHTxbm406duFtk-HzPq0krKwb8YIn4VhiUqLCuq5DHx8kevda7tcZKOmKSkcGlYoKVv6t8iiydBmVnr22RNr28v-A52bM"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">visibility</span>
+</div>
+</div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors">Sacred Geometries</h3>
+<p class="text-sm text-on-surface-variant">Elena Rossi</p>
+</div>
+<!-- Related Book 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] bg-surface-container-low rounded-xl overflow-hidden mb-4 relative transition-transform duration-500 group-hover:-translate-y-2">
+<img class="w-full h-full object-cover" data-alt="Dark scholarly book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyjnypkVXQWa0uXEwcr53N_1OLu4KfMni5PTeJR5CwDSfkwB9YB_NxZmX_rBzA_GJ7e2Xf2Gppg0S42AR_th9D0fbV-vXq8bONJCTEGWtXcjbsTFlX2aJK7ydKpa0U76HiJG81TYVBtmG5228V3Fefu-YkuK-m7OsL1UJdVuhi62-xaKVcS27zEaUIVcyeSTmS1cb1zmy2MYQgByU8O_ZjhWSV135fA57ctU5VYABuBNm-zsbSscTYL-jxfUek5LsfaZV1lw6f2qo"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">visibility</span>
+</div>
+</div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors">Memory of Walls</h3>
+<p class="text-sm text-on-surface-variant">Simon K. Vance</p>
+</div>
+<!-- Related Book 5 -->
+<div class="group cursor-pointer hidden lg:block">
+<div class="aspect-[2/3] bg-surface-container-low rounded-xl overflow-hidden mb-4 relative transition-transform duration-500 group-hover:-translate-y-2">
+<img class="w-full h-full object-cover" data-alt="Elegant vintage book cover" src=""/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">visibility</span>
+</div>
+</div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors">Echoes of Design</h3>
+<p class="text-sm text-on-surface-variant">Margareth Howe</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-low border-t border-outline-variant/10 mt-32 py-16">
+<div class="max-w-[1440px] mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-2">
+<span class="font-headline text-2xl font-extrabold tracking-tight text-primary block mb-6">Library</span>
+<p class="text-on-surface-variant leading-relaxed max-w-sm">
+                        Menyediakan akses tak terbatas ke dunia pengetahuan melalui koleksi kurasi digital dan fisik terbaik untuk para cendekiawan modern.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-6 uppercase tracking-widest text-xs">Resources</h4>
+<ul class="space-y-4 text-on-surface-variant font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-6 uppercase tracking-widest text-xs">Follow Us</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant/10">
+<p class="text-on-surface-variant text-sm">© 2024 Modern Library Association. All rights reserved.</p>
+<div class="flex gap-8 mt-4 md:mt-0 text-sm font-medium text-on-surface-variant">
+<span>Jakarta, Indonesia</span>
+<span>English (US)</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

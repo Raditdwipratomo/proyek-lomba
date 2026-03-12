@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#e0e3e5",
+              "surface-dim": "#d8dadc",
+              "on-primary-fixed": "#001b3c",
+              "outline": "#74777f",
+              "primary-fixed-dim": "#adc7f7",
+              "surface-container-lowest": "#ffffff",
+              "outline-variant": "#c4c6cf",
+              "on-primary-fixed-variant": "#2d476f",
+              "secondary": "#545f72",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-surface": "#2d3133",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "surface-bright": "#f7f9fb",
+              "surface-container-highest": "#e0e3e5",
+              "on-secondary": "#ffffff",
+              "background": "#f7f9fb",
+              "on-secondary-fixed": "#111c2c",
+              "on-tertiary-fixed-variant": "#00513b",
+              "surface": "#f7f9fb",
+              "on-primary": "#ffffff",
+              "secondary-container": "#d5e0f7",
+              "on-background": "#191c1e",
+              "tertiary-container": "#003e2c",
+              "secondary-fixed-dim": "#bcc7dd",
+              "on-tertiary-fixed": "#002116",
+              "surface-container": "#eceef0",
+              "on-surface-variant": "#43474e",
+              "on-secondary-container": "#586377",
+              "on-tertiary-container": "#63ad8f",
+              "secondary-fixed": "#d8e3fa",
+              "inverse-primary": "#adc7f7",
+              "on-surface": "#191c1e",
+              "on-secondary-fixed-variant": "#3c475a",
+              "tertiary-fixed": "#a6f2d1",
+              "tertiary": "#00261a",
+              "primary-fixed": "#d6e3ff",
+              "tertiary-fixed-dim": "#8bd6b6",
+              "on-primary-container": "#86a0cd",
+              "primary": "#002045",
+              "surface-tint": "#455f88",
+              "inverse-on-surface": "#eff1f3",
+              "on-error-container": "#93000a",
+              "primary-container": "#1a365d",
+              "surface-container-high": "#e6e8ea",
+              "error": "#ba1a1a"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .silk-gradient {
+            background: linear-gradient(135deg, #002045 0%, #1a365d 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 glass-header border-b border-outline-variant/20">
+<div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<span class="font-headline font-extrabold text-2xl tracking-tight text-primary">Library</span>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Catalog</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">My Books</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">E-Resources</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User Profile Avatar" data-alt="Portrait of a person for profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuNs301dG3pgrPlREuq-Am8xClr7GgBqWojp59kBJcf2OgRq_tu4EIrJ-8Zi8jxU2G0vwkHk1lfyjZFVuzP5UP2BrQx_Z0v1TsBl_jsxPl4ClgZSYZ3iozVaXYCQmGDD0CYxplNxZw3yk6xy7dUXzJ0Kv12iP6SxoLVJp_jJuk5ZvjRZvBCZvG8WXHflWWoro48_TR0-jjN976CdNjpwSnBh-1BiINHtYx7Tfu2idC3lWXs7iSe1TRBXBvkPPFhoJSWERDixaoGGg"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex max-w-[1440px] mx-auto pt-20">
+<!-- Side Navigation Rail -->
+<aside class="w-72 hidden lg:block sticky top-20 h-[calc(100vh-5rem)] bg-surface-container-low px-6 py-12">
+<div class="mb-10 px-2">
+<h2 class="font-headline font-bold text-lg text-primary">Collections</h2>
+<p class="text-on-surface-variant text-sm mt-1">Explore our library</p>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 bg-surface-container-lowest text-primary rounded-xl font-semibold shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span>All Books</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">category</span>
+<span>Categories</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">new_releases</span>
+<span>New Arrivals</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span>Reading List</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 px-8 py-12 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="mb-16">
+<div class="relative rounded-3xl overflow-hidden min-h-[400px] flex flex-col justify-center p-12 silk-gradient">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<img class="w-full h-full object-cover grayscale" data-alt="Atmospheric library interior with bookshelves and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf3Y2SjZ6sQVfxIVBBsFK9L3Fycv72XGcKLknrqYAYDsXdtlmcI3AhLXDcnDQjZClUjmMWV6OLEk1BFv1GKpQyejWWGKbxe8oeR_i9vZD5pkxos2prSs-hDGLkar0hjchFZhk_j4AjjUvOXYAOq-LMZ_JVUIF74yQcHctKGwRc2jhO1631tsaSnfhC4c1HBXAvEOXVDOX2j_1RMg3keg8RfkPRLgMvPTF_rY_9vffqiZCV0_f4XE01S7wT8JZYAUKFwvu9EEl3rZk"/>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h1 class="font-headline text-5xl font-extrabold text-white leading-tight mb-6">Temukan Dunia Melalui Jendela Ilmu.</h1>
+<div class="relative group">
+<span class="absolute left-5 top-1/2 -translate-y-1/2 text-on-primary-container/70 material-symbols-outlined">search</span>
+<input class="w-full pl-14 pr-6 py-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder:text-white/60 focus:ring-2 focus:ring-primary-fixed focus:border-transparent transition-all outline-none" placeholder="Cari buku, penulis, atau kategori..." type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Books Section -->
+<section class="mb-16">
+<div class="flex justify-between items-end mb-8 px-2">
+<div>
+<h2 class="font-headline text-3xl font-bold">Buku Populer Saat Ini</h2>
+<p class="text-on-surface-variant mt-2">Buku yang paling banyak dibaca bulan ini</p>
+</div>
+<button class="text-primary font-semibold flex items-center gap-2 hover:underline">
+                        Lihat Semua <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8">
+<!-- Book Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] rounded-xl overflow-hidden bg-surface-container mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cover of a minimal modern fiction book" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRlwo_JUSPmH9D3Jh6Dm7G4lqgkcAIUcpMHJl7wBddMg9dUn3fUu-fZgmCuOGIcMZbDX7VfH2CXZa8NjvxwPze7SNUu1D1Nka-FtNMpjawOlyoNncz6LCFMeXYKxhh8upXeKTFWzBl3jNyvqe1gqmtRbrwnTALBmfypgcEmFbCsQ8qL1B60_twzy8oSlzNwf9GNz2pksC0fyTfcye_cmw34O9cxFlsoQe4l5yKKoExr-HWClrY0E2I7XE-1BcR1kp6uaHFIMAwuTY"/>
+</div>
+<h3 class="font-headline font-bold text-on-surface line-clamp-1">The Midnight Library</h3>
+<p class="text-sm text-on-surface-variant mt-1">Matt Haig</p>
+</div>
+<!-- Book Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] rounded-xl overflow-hidden bg-surface-container mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cover of a classic literature book with vintage texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnWgnrqnwBPtZs4606jWBhinZ2MIt7G_HfjBeOlLWdE9knzzs7WOGfhPUNtu3q-vVMXoTOzMPgXe3fRo_8spe42Vg2DJzrM9iwsYOUtTytl9CfNWBVdSNfz__c-07dNp8MRcHdX7Zd1X9oNB5yeTeYc0D_bL4bxir_K3gabv-Ozz5gukrolROJ8oSHdB-EL3TBk3tdKgcSSqZmPGn1Dlz5zyNwUkDTsPEq0lVTBvpPUMaRhqQZnEOLaqYFCnfqjOukVTO9OQbhQaA"/>
+</div>
+<h3 class="font-headline font-bold text-on-surface line-clamp-1">Great Expectations</h3>
+<p class="text-sm text-on-surface-variant mt-1">Charles Dickens</p>
+</div>
+<!-- Book Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] rounded-xl overflow-hidden bg-surface-container mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Colorful modern graphic novel cover design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_tgkzE4c4YgtBgnfmiU8rkqmXwO_8GflLeD0bjiysUqBAlaYpPOZfJC2DyzYLmSWzR7RHgmw1wHZnT8WNkMpGFl2pbGk2gEKIyIRMtyOH7_4oGDF7V5fmjxDHrxw2UksMH1L334dVDjcpaAbFoCm64RqPxQ3Kmv_QEPnOhXc4C8N5DVl08Bp87y6HFvtp4YmiBVq1l3gwTwRL3WjnUmMr6NTX7DjwHSKuzOzEDYt9awLELMHgIZwPv6k04p3WU-QS4MWsLivX-t8"/>
+</div>
+<h3 class="font-headline font-bold text-on-surface line-clamp-1">Bumi Manusia</h3>
+<p class="text-sm text-on-surface-variant mt-1">Pramoedya Ananta Toer</p>
+</div>
+<!-- Book Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] rounded-xl overflow-hidden bg-surface-container mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Educational textbook cover about world history" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUSq5uWrYRIYMZk6QNwPJRDwA_xMX6YT8-oakoKTe-04V9vOztHtLkrJfdkj0PqrkB41ZWJSQhAxJesgEskNrpbB0OHLGf4AHpgEoVFUsPRjQqLU2gwmuhN6MyUWtzgbNfvFjDqyMfEf8z-N_aW7cWiTbd29bBq7BiWeh3-eTNNJItM30HqKjWQdXngq2l0nutbu-LGm-xtfDdW35V4Dl1qHsHYlXt-xVI8aeiQkRr14g3A2c0fRn9gMpvtsbGcksEiraOVP-UKeA"/>
+</div>
+<h3 class="font-headline font-bold text-on-surface line-clamp-1">Sapiens</h3>
+<p class="text-sm text-on-surface-variant mt-1">Yuval Noah Harari</p>
+</div>
+<!-- Book Card 5 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] rounded-xl overflow-hidden bg-surface-container mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Clean scientific book cover with geometric shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXqf-rOtEzqp8VhTZ609qd6Vup-RyxSS1NBOIwnqa6gIYnI8z9ZWzrct7mfdTQwgDSUTUomVhYOfCZZZvyS2Uv9S2JCaSS4AM3OBlj68QcXs3tOeJYVSiLxAHGEywRzS9JtdtdaA8SMA8uhXyW5eMChBS6owdvysfWHlKk4zhF8xu5AFT17C217NjCoTHdpusOOifftMMkbIMKK0v6AMqIwG143uvGsop2Dz9kjf793vX9eLvMoc-1f_1kQ80uQzcc-6XeYSBb2DM"/>
+</div>
+<h3 class="font-headline font-bold text-on-surface line-clamp-1">Atomic Habits</h3>
+<p class="text-sm text-on-surface-variant mt-1">James Clear</p>
+</div>
+</div>
+</section>
+<!-- Categories Favorite -->
+<section class="mb-16">
+<h2 class="font-headline text-3xl font-bold mb-8 px-2">Kategori Favorit</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="relative h-48 rounded-2xl overflow-hidden group cursor-pointer bg-primary">
+<div class="absolute inset-0 opacity-40 group-hover:scale-110 transition-transform duration-700">
+<img class="w-full h-full object-cover" data-alt="Abstract literary scene for fiction category" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr_1o4BHmqahPsLsnJKr48aMb8sThQPIE4B5WGa8FyStNkBnERElLevh_ak5V8vzYgnGHAmqg3K3Z_X9RzednZH319Sz_VaI410q-9mxegYX4EseNqV3gW6Czll0zEEhph3kjia7c72za3hyfUWz_-QlB-TiPFwIC1K6ky_aZJI-DhB1IyVDMJh7LC0HU--nl0zzhZ0UHmv1fXrRaeMb6Vn4rw4OJngg3wzSmuCq6Kpl4Jy8M6dw-cQPRZ3ZMjZ7sBvAeys6JRhgg"/>
+</div>
+<div class="relative h-full flex items-center justify-center p-6 text-center">
+<h3 class="font-headline text-3xl font-extrabold text-white">Fiksi</h3>
+</div>
+</div>
+<div class="relative h-48 rounded-2xl overflow-hidden group cursor-pointer bg-tertiary">
+<div class="absolute inset-0 opacity-40 group-hover:scale-110 transition-transform duration-700">
+<img class="w-full h-full object-cover" data-alt="Science and technology background for categories" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDN0mmfYcqnrkq63NTa_n15QxIxvCEk3vnDppETkqXKwgOy2TT2PHjPAjcZE4mEHzoFTR54uXiYJupFh8LEF_an2HfzTSk8RAEXRbtL_BmH9YcdvSXEd2BjM-rVb0P4d71WzJxM3g9H4WFBiMupAxn1snjOYgi-iP5lQMwgQtm1uIIs1yMGh_DJURktPVN272Qf5A9u2-K2ezQGLYU1hScFVSvJvsHVwFbXQTQkqwuPWHwzyGLeloYObCK0LnO5pSIpjmZu3myxZE"/>
+</div>
+<div class="relative h-full flex items-center justify-center p-6 text-center">
+<h3 class="font-headline text-3xl font-extrabold text-white">Sains</h3>
+</div>
+</div>
+<div class="relative h-48 rounded-2xl overflow-hidden group cursor-pointer bg-secondary-container">
+<div class="absolute inset-0 opacity-40 group-hover:scale-110 transition-transform duration-700">
+<img class="w-full h-full object-cover" data-alt="Ancient architectural details for history category" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGeLBfQebL_hhaYnEOqPGMd35C84PS5Tb1_gL9dsGmKvHRAuLVpqMfIvBXT0R1uLPe4gPCqGY2K755HUpSFrrkhuhvssxMToCQFqRW7ZAa2ChA6GEGO0-mKQCpqciUwli80hFk7vhi_ZYyj8YUHX_U_ACAfnIQzCRM-YXVnjgYedphUYwmH7OnYtAsw4ATxXC8K5NQe7cOon-SvZX2eVoSht7gDs7nlTWdGE8YHLp48Pz6dcJPGnJrLrli9NBs8UoOA_T8bl09UUU"/>
+</div>
+<div class="relative h-full flex items-center justify-center p-6 text-center">
+<h3 class="font-headline text-3xl font-extrabold text-primary">Sejarah</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- News & Events Section (Bento Style) -->
+<section class="mb-8">
+<h2 class="font-headline text-3xl font-bold mb-8 px-2">Berita &amp; Event</h2>
+<div class="grid grid-cols-1 lg:grid-cols-4 grid-rows-2 gap-6 h-auto lg:h-[500px]">
+<div class="lg:col-span-2 lg:row-span-2 bg-surface-container-lowest rounded-3xl p-8 flex flex-col justify-between hover:bg-white transition-colors">
+<div>
+<span class="inline-block px-4 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant text-xs font-bold rounded-full mb-6">EVENT MENDATANG</span>
+<h3 class="font-headline text-4xl font-bold mb-4">Workshop Literasi Digital 2024</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed">Bergabunglah dengan para ahli untuk memahami cara menyaring informasi di era digital yang serba cepat ini. Sesi gratis dan terbuka untuk umum.</p>
+</div>
+<div class="flex items-center gap-6 mt-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<span class="font-medium">12 Oktober 2024</span>
+</div>
+<button class="px-6 py-3 silk-gradient text-white font-bold rounded-xl hover:opacity-90 transition-opacity">Daftar Sekarang</button>
+</div>
+</div>
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-3xl p-8 flex gap-6 hover:bg-white transition-colors">
+<div class="w-24 h-24 shrink-0 rounded-2xl bg-primary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a stack of books for news thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDft3SbqVAwypHzb1O93NCytOzWu_VRrCMFvox5EwqLpTExTmbmTVhFHIhlxKeRtmJRG1EKD8ISHtFECdvIB71kWRHlLLk8M218xSFkZnxwVsV8pPnrWnnvb8e7vld9bBwlrES1o8MhEfcJlM8e4RpTapJ-BtihRXXXC0EL_Pl-_bJ5L6nrbaa9D_uBgMEZTXTBjb0kmKne-PvMRDP3tKsGxdVSLEv7f7rqS_NlHopXRFJ_TqYd1yk4PMv47tpsLWzFqb_d3CZXZTI"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-xl mb-2">Penambahan 500+ Koleksi E-Book Baru</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Akses ribuan judul terbaru dari penerbit internasional langsung dari aplikasi kami...</p>
+</div>
+</div>
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-3xl p-8 flex gap-6 hover:bg-white transition-colors">
+<div class="w-24 h-24 shrink-0 rounded-2xl bg-tertiary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Smiling student using a computer in the library" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG0a_BwR2X5JusWEXl-dT-T6c-Kr3jF7RXprznVq6j4Qx3wAgMv482MWpHAo62EtNhiGn7Al2vz8psbFBdr7El547fCtd_0iMWsB4Bv5J_wJIDD-6vKUF_mWsybaWvCII0bO9qY2dtPZKYWmvxKbqPQE7o4By5LnN8Bt43KqIjbZyFrL-8ygzSi74st6tmAFvRJD1cke-o9NiKM0xRkbeg3bcG2cWQiSeboL7A4Lkz6Qb251fgMbpFEoaY-CZ1Bu1See5oVsT6Od0"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-xl mb-2">Ruang Belajar Baru Kini Tersedia</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Kami telah merenovasi lantai 3 dengan konsep open-space yang lebih nyaman dan tenang.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/30 py-16">
+<div class="max-w-[1440px] mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline font-extrabold text-2xl tracking-tight text-primary">Library</span>
+<p class="text-on-surface-variant mt-4 leading-relaxed">Pusat pengetahuan modern yang menghubungkan komunitas dengan literasi global melalui teknologi.</p>
+</div>
+<div>
+<h5 class="font-headline font-bold mb-6">Navigasi</h5>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Catalog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">E-Resources</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Research Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Membership</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold mb-6">Layanan</h5>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold mb-6">Hubungi Kami</h5>
+<p class="text-on-surface-variant mb-4">Jl. Pendidikan No. 123, Jakarta Selatan, Indonesia</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant/20 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant text-sm">© 2024 Modern Library Association. All rights reserved.</p>
+<div class="flex gap-6">
+<img class="h-6 grayscale opacity-50" data-alt="Small corporate partner logo 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjsfMrn72nmVKodIKwnR_4d2tSZH8rgvM_hkAeA1HQu-OWk340mEwPMccQRSRIAD_J9pMz9jKj5v4vr1WEe0gZmIM5qFyxMiitDV-UoliRZATl3mOwvXZdHnH2jWDEbsfs_BJipNaNiEq9_N_Tda-Ygk0tQ36unvqfcc1IoHnxXifnx0ZpSzZROcfOhcuAHVDyKUIZkqbBZ9lZrdupyqyuThf2duOwREMmjmSJsadW_vG-y8GS4IvJfrkB0aUH3dIiHIy-MUyMNAE"/>
+<img class="h-6 grayscale opacity-50" data-alt="Small corporate partner logo 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtphAicpjnXPXkj1JyaWR3GNlHLwmaUZ6vrfmXaBn7rJmihjdbPWh1YGF3pHneQz1zQALpkTkgZk6Cdf9wZVhtNGSD-K79Db0gxfNoRG7P1RFHkxKkhLIuSj905T9WFYndlyAPB0NiSWSL-NQcggej-xkIfQJ9S9_kZusnUNZMKNy3ST465FmeGJbs9pkRRfxcUmtSx70ugmy1SULP1we0h2Bcb6NIsl0EJDLIuIJLgaIS_4W_RI8Q0npapBConISDcTh0YofRF9M"/>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
